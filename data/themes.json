@@ -1,0 +1,45 @@
+{
+  "types": {
+    "SOUL": {
+      "accent": "#9ae6b4",
+      "accent2": "#a0e0ff",
+      "brand": "#d8b4fe",
+      "bg": "radial-gradient(1100px 700px at 60% -10%, rgba(154,230,180,0.15) 0%, transparent 55%), linear-gradient(180deg, #0f1117, #0d0f14)"
+    },
+    "BOLD": {
+      "accent": "#ff9776",
+      "accent2": "#ffd66e",
+      "brand": "#ffb7c5",
+      "bg": "radial-gradient(1100px 700px at 70% -10%, rgba(255,151,118,0.16) 0%, transparent 55%), linear-gradient(180deg, #121016, #0d0c12)"
+    },
+    "PURE": {
+      "accent": "#aee3ff",
+      "accent2": "#e0f2ff",
+      "brand": "#bfe8ff",
+      "bg": "radial-gradient(1100px 700px at 65% -10%, rgba(174,227,255,0.18) 0%, transparent 55%), linear-gradient(180deg, #0f1116, #0b0d12)"
+    },
+    "VIBE": {
+      "accent": "#7cc7ff",
+      "accent2": "#9ae6b4",
+      "brand": "#ffd66e",
+      "bg": "radial-gradient(1100px 700px at 70% -10%, rgba(124,199,255,0.18) 0%, transparent 55%), linear-gradient(180deg, #0f1017, #0a0b12)"
+    },
+    "CALM": {
+      "accent": "#b6c6ff",
+      "accent2": "#9ae6b4",
+      "brand": "#a8adb7",
+      "bg": "radial-gradient(1100px 700px at 60% -10%, rgba(182,198,255,0.16) 0%, transparent 55%), linear-gradient(180deg, #0e1016, #0a0c12)"
+    },
+    "WILD": {
+      "accent": "#ffd66e",
+      "accent2": "#7cc7ff",
+      "brand": "#ffb7c5",
+      "bg": "radial-gradient(1100px 700px at 65% -10%, rgba(255,214,110,0.18) 0%, transparent 55%), linear-gradient(180deg, #101015, #0a0b0f)"
+    }
+  },
+  "groups": {
+    "Light & Soft": { "accent": "#aee3ff", "accent2": "#b6f0d2", "brand": "#d8b4fe" },
+    "Deep & Bold":  { "accent": "#ff9776", "accent2": "#ffd66e", "brand": "#ffb7c5" },
+    "Bright & Free":{ "accent": "#7cc7ff", "accent2": "#9ae6b4", "brand": "#ffd66e" }
+  }
+}

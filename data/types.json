@@ -1,0 +1,8 @@
+[
+  {"code":"SOUL","name":"The Soulful","desc":"優しく穏やか、共感力が高い","one":"包み込むやさしさ。しっとり寄り添うタイプ。"},
+  {"code":"BOLD","name":"The Bold","desc":"情熱と行動力、芯が強い","one":"堂々として頼もしい。芯があり前向き。"},
+  {"code":"PURE","name":"The Pure","desc":"誠実で自然体、透明感","one":"すっと素直。飾らない心地よさ。"},
+  {"code":"VIBE","name":"The Vibe","desc":"社交的で明るい、軽やか","one":"その場を明るくするムードメーカー。"},
+  {"code":"CALM","name":"The Calm","desc":"落ち着きと知性、静かな情熱","one":"静かに深い。落ち着いた安心感。"},
+  {"code":"WILD","name":"The Wild","desc":"自由奔放、好奇心と冒険心","one":"直感で動く開拓者。新しい刺激が好き。"}
+]

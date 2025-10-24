@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
+  <title>Pairin（ペアリン）｜あなたとワインをマッチング</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <!-- スクリプトは依存順に読み込み -->
+  <script src="./js/data-loader.js" defer></script>
+  <script src="./js/score.js" defer></script>
+  <script src="./js/ui.js" defer></script>
+  <script src="./js/app.js" defer></script>
+</head>
+
+<body data-show-scores="true">
+  <div class="wrap">
+    <header>
+      <div class="logo">P</div>
+      <div>
+        <h1>Pairin（ペアリン）</h1>
+        <div class="sub">あなたとワインをマッチング</div>
+      </div>
+    </header>
+
+    <!-- ======= STEP: PROFILE 1 ======= -->
+    <section id="step-profile-1" class="card fade profile-step">
+      <div class="kicker">STEP 0-1</div>
+      <h2 style="margin:.2rem 0 .2rem">ニックネームを教えてください</h2>
+      <input id="nick" type="text" inputmode="text" placeholder="呼ばれたい名前（例：まい／Taku）" />
+      <div class="actions">
+        <button id="p1-next">次へ →</button>
+      </div>
+    </section>
+
+    <!-- ======= STEP: PROFILE 2 ======= -->
+    <section id="step-profile-2" class="card fade profile-step hidden">
+      <div class="kicker">STEP 0-2</div>
+      <h2 style="margin:.2rem 0 .2rem">あなたの“雰囲気”に近いもの</h2>
+      <div class="row" id="gender-chips"></div>
+      <div class="actions">
+        <button class="ghost" id="p2-prev">戻る</button>
+        <button id="p2-next">次へ →</button>
+      </div>
+    </section>
+
+    <!-- ======= STEP: PROFILE 3 ======= -->
+    <section id="step-profile-3" class="card fade profile-step hidden">
+      <div class="kicker">STEP 0-3</div>
+      <h2 style="margin:.2rem 0 .2rem">年齢（ざっくり）</h2>
+      <div class="row" id="age-chips"></div>
+
+      <div class="section-title" style="margin-top:6px">つい惹かれるもの（複数選択可・任意）</div>
+      <div class="hint">※最低1つは選択してください</div>
+      <div class="row" id="like-chips" style="margin-top:6px"></div>
+
+      <div class="actions">
+        <button class="ghost" id="p3-prev">戻る</button>
+        <button id="to-quiz">診断をはじめる →</button>
+      </div>
+    </section>
+
+    <!-- ======= STEP: QUIZ ======= -->
+    <section id="step-quiz" class="card hidden">
+      <div class="kicker">診断</div>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="hint" id="progressText">Q1 / 7</div>
+      <h3 class="q-title" id="qTitle">質問テキスト</h3>
+      <div id="opts" class="fade" style="display:grid; gap:10px;"></div>
+      <div class="actions">
+        <button class="ghost" id="prevBtn">戻る</button>
+        <button class="ghost" id="toProfileBtn">プロフィールへ戻る</button>
+        <button id="nextBtn">次へ</button>
+      </div>
+      <div class="footer-note">あと <span id="remain">7</span> 問で結果が出ます</div>
+    </section>
+
+    <!-- ======= STEP: LOADING ======= -->
+    <section id="step-loading" class="card center hidden">
+      <div class="fade">
+        <div class="kicker">Pairinコード解析中…</div>
+        <h3 style="margin:.2rem 0 0">あなたとマッチする一杯を探しています</h3>
+        <div class="hint">数秒だけお待ちください</div>
+      </div>
+    </section>
+
+    <!-- ======= STEP: RESULT ======= -->
+    <section id="step-result" class="card hidden">
+      <div class="kicker">結果</div>
+
+      <!-- 結果のヒーロー（雰囲気バナー） -->
+      <div id="result-hero" class="result-hero">
+        <div class="result-hero-tag" id="resultHeroTag">TYPE: —</div>
+        <div class="result-hero-sub" id="resultHeroSub">あなたのタイプが反映された雰囲気に切り替わります</div>
+
+      </div>
+
+      <div id="typeLine" class="summary">あなたのタイプ：</div>
+      <div class="divider"></div>
+
+      <div class="section-title">相性のワイン</div>
+      <div class="wine-card">
+        <div class="wine-head">
+          <div class="flag" id="wineFlag">🇬🇷</div>
+          <div>
+            <div><strong id="wineName">ワイン名</strong></div>
+            <div class="row" style="gap:8px; margin-top:6px">
+              <span class="pill" id="wineCountryPill">ギリシャ</span>
+              <span class="pill" id="wineGroupPill">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="muted sm" id="wineNotes">（短い説明）</div>
+        <div class="row" style="margin-top:10px">
+          <span class="pill"><span>🍽️</span><span id="winePair">合う料理</span></span>
+          <span class="pill"><span>🥂</span><span id="wineScene">似合う雰囲気</span></span>
+        </div>
+
+        <div class="divider"></div>
+        <button id="moreBtn" class="ghost" style="width:100%">詳しく見る</button>
+        <div id="moreDetails" class="muted sm hidden" style="margin-top:8px; line-height:1.7">
+          <div id="detailRegion"></div>
+          <div id="detailCulture" style="margin-top:8px"></div>
+          <div id="detailGrape" style="margin-top:8px"></div>
+          <div id="detailMaking" style="margin-top:8px"></div>
+          <div id="detailServe" style="margin-top:8px"></div>
+          <div id="detailStory" style="margin-top:8px"></div>
+        </div>
+        <!-- 結果の案内（インライン表示・固定ではない） -->
+        <section id="result-bar" class="result-bar" role="status" aria-live="polite">
+          <div class="result-bar-head">
+            <span class="emoji" aria-hidden="true">👋</span>
+            <span class="title"><b>ここを見せてください</b></span>
+            <span class="badge">YORUGOS 案内用</span>
+          </div>
+          <p class="result-note">
+            このワインはブースで<strong>試飲できます</strong>。お気軽にお声がけください。
+          </p>
+          <div class="result-bar-actions">
+            <a id="buyBtn" class="btn primary big" href="https://oinos.jp" target="_blank" rel="noopener">🛒 今すぐ買う</a>
+            <button id="retry2" class="btn ghost">もう一度診断</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ========= SCORE FOOTER（診断中のみ表示） ========= -->
+    <section id="score-footer" class="score-footer hidden" aria-live="polite">
+      <div class="score-title">
+        <b>タイプ別スコア</b>
+        <span class="score-help">※リアルタイムで更新</span>
+      </div>
+      <div id="scoreGrid" class="score-grid"></div>
+    </section>
+
+  </div>
+</body>
+</html>
